@@ -1,0 +1,29 @@
+application: cmusvdirectory
+version: 4
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /People.*
+  script: main.app
+
+- url: /Loc.*
+  script: main.app
+
+- url: /Message.*
+  script: main.app
+
+- url: /Version.*
+  script: main.app
+
+- url: .*
+  script: asklogin.app
+  
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+libraries:
+- name: webapp2
+  version: "2.5.1"
